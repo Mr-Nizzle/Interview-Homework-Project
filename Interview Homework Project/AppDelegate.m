@@ -7,16 +7,40 @@
 //
 
 #import "AppDelegate.h"
+#import "MasterViewController.h"
+#import "DetailViewController.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) MasterViewController *masterViewController;
+@property (nonatomic, strong) DetailViewController *detailViewController;
+@property (nonatomic, strong) UINavigationController *mainNavigationController;
+@property (nonatomic, strong) UINavigationController *detailNavigationController;
+@property (nonatomic, strong) UISplitViewController *mainSplitViewController;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    if (IS_IPAD) {
+        self.masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
+        self.mainNavigationController = [[UINavigationController alloc] initWithRootViewController:self.masterViewController];
+        
+        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+        self.detailNavigationController = [[UINavigationController alloc] initWithRootViewController:self.detailViewController];
+        
+        self.mainSplitViewController = [[UISplitViewController alloc] init];
+        self.mainSplitViewController.viewControllers = @[self.mainNavigationController, self.detailNavigationController];
+        self.window.rootViewController = self.mainSplitViewController;
+    }
+    else{
+        self.masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
+        self.mainNavigationController = [[UINavigationController alloc] initWithRootViewController:self.masterViewController];
+        self.window.rootViewController = self.mainNavigationController;
+    }
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
