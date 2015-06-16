@@ -26,6 +26,7 @@
 		8C2875981B30840300777E6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2875971B30840300777E6D /* MapKit.framework */; };
 		8C28759B1B30877C00777E6D /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C28759A1B30877C00777E6D /* MyAnnotation.m */; };
 		8C71A2901B30CF2B00922F5E /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C71A28F1B30CF2B00922F5E /* NetworkManager.m */; };
+		8C71A2941B30D8E500922F5E /* DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C71A2931B30D8E500922F5E /* DateFormatter.m */; };
 		8CA549821B3090B500F56906 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA549811B3090B500F56906 /* Venue.m */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		8C28759A1B30877C00777E6D /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		8C71A28E1B30CF2B00922F5E /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		8C71A28F1B30CF2B00922F5E /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		8C71A2921B30D8E500922F5E /* DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormatter.h; sourceTree = "<group>"; };
+		8C71A2931B30D8E500922F5E /* DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormatter.m; sourceTree = "<group>"; };
 		8CA549811B3090B500F56906 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		946C96F6312FF93DE81F48C9 /* Pods-Interview Homework Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interview Homework Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Interview Homework Project/Pods-Interview Homework Project.release.xcconfig"; sourceTree = "<group>"; };
 		AC2493B2683AB3FF7B985245 /* Pods-Interview Homework Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interview Homework Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Interview Homework Project/Pods-Interview Homework Project.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		4AA61BF21B2F78590017B091 /* Interview Homework Project */ = {
 			isa = PBXGroup;
 			children = (
+				8C71A2911B30D8CB00922F5E /* DateFormatter */,
 				8C71A28D1B30CEF600922F5E /* Network */,
 				4AA61C251B2F78B20017B091 /* Models */,
 				8CA549841B30912200F56906 /* Views */,
@@ -234,6 +238,15 @@
 				8C71A28F1B30CF2B00922F5E /* NetworkManager.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		8C71A2911B30D8CB00922F5E /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				8C71A2921B30D8E500922F5E /* DateFormatter.h */,
+				8C71A2931B30D8E500922F5E /* DateFormatter.m */,
+			);
+			name = DateFormatter;
 			sourceTree = "<group>";
 		};
 		8CA549831B30911900F56906 /* Controllers */ = {
@@ -436,6 +449,7 @@
 				4AA61C1C1B2F78890017B091 /* MasterViewController.m in Sources */,
 				8CA549821B3090B500F56906 /* Venue.m in Sources */,
 				4AA61BF91B2F78590017B091 /* AppDelegate.m in Sources */,
+				8C71A2941B30D8E500922F5E /* DateFormatter.m in Sources */,
 				8C28759B1B30877C00777E6D /* MyAnnotation.m in Sources */,
 				4AA61C6A1B2FA0080017B091 /* EmptyViewController.m in Sources */,
 				4AA61C2E1B2F85D00017B091 /* VenueTableViewCell.m in Sources */,

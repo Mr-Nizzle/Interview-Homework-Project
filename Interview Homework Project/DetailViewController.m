@@ -11,6 +11,7 @@
 #import "Venue.h"
 #import "UIImageView+WebCache.h"
 #import "VenueMapViewController.h"
+#import "DateFormatter.h"
 
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
@@ -68,27 +69,9 @@
     }
     
     NSDictionary *schedule = [_venue.schedule objectAtIndex:indexPath.row];
-    
-    NSDateFormatter *dateFormatterGMT = [[NSDateFormatter alloc] init];
-    [dateFormatterGMT setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-    
-    NSDateFormatter *dateFormatterHuman = [[NSDateFormatter alloc] init];
-    [dateFormatterHuman setDateFormat:@"EEEE dd 'from' hh:mma"];
-    [dateFormatterHuman setAMSymbol:@"am"];
-    [dateFormatterHuman setPMSymbol:@"pm"];
-    
-    NSDateFormatter *dateFormatterHumanTo = [[NSDateFormatter alloc] init];
-    [dateFormatterHumanTo setDateFormat:@"'to' hh:mma"];
-    [dateFormatterHumanTo setAMSymbol:@"am"];
-    [dateFormatterHumanTo setPMSymbol:@"pm"];
-    
-    NSDate *dateFrom = [dateFormatterGMT dateFromString:[schedule valueForKey:@"start_date"]];
-    NSDate *dateTo = [dateFormatterGMT dateFromString:[schedule valueForKey:@"end_date"]];
-    
-    NSString *formattedDateStringFrom = [dateFormatterHuman stringFromDate:dateFrom];
-    NSString *formattedDateStringTo = [dateFormatterHumanTo stringFromDate:dateTo];
-    
-    [cell.venueScheduleLabel setText:[NSString stringWithFormat:@"%@ %@", formattedDateStringFrom, formattedDateStringTo]];
+    DateFormatter *scheduleDateFormatter = [[DateFormatter alloc] init];
+    NSString *sheduleDateString = [scheduleDateFormatter formattedStringForScheduleWithStartDateString:[schedule valueForKey:@"start_date"] andEndDateString:[schedule valueForKey:@"end_date"]];
+    [cell.venueScheduleLabel setText:sheduleDateString];
     
     return cell;
 }
