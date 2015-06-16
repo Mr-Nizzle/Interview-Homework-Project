@@ -26,10 +26,16 @@
         [self.locationManager requestWhenInUseAuthorization];
         [self.locationManager requestAlwaysAuthorization];
     }
-    [self.locationManager startUpdatingLocation];
+    CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
     
-    self.venueMapView.showsUserLocation = YES;
-    self.venueMapView.showsPointsOfInterest = YES;
+    if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        
+        [self.locationManager startUpdatingLocation];
+        _venueMapView.showsUserLocation = YES;
+        
+    }
     [self setMapPin];
 }
 
