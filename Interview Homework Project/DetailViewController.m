@@ -191,6 +191,7 @@
 
 -(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc{
     if (![self respondsToSelector:@selector(displayModeButtonItem)]) {
+        [barButtonItem setTitle:@"Venues"];
         [[self navigationItem] setLeftBarButtonItem:barButtonItem];
     } else {
         // This callback function is depreciated in IOS8. We use displayModeButtonItem.

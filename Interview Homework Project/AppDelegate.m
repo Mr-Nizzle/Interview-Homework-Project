@@ -79,21 +79,5 @@
     [self.detailNavigationController setViewControllers:@[detailViewController] animated:YES];
 }
 
--(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc{
-    if (![self respondsToSelector:@selector(displayModeButtonItem)]) {
-        [[[self detailNavigationController] navigationItem] setLeftBarButtonItem:barButtonItem];
-    } else {
-        // This callback function is depreciated in IOS8. We use displayModeButtonItem.
-    }
-}
-
--(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem{
-    if (![self respondsToSelector:@selector(displayModeButtonItem)]) {
-        [[[self detailNavigationController] navigationItem] setLeftBarButtonItem:nil];
-    } else {
-        // This callback function is depreciated in IOS8. We use displayModeButtonItem.
-    }
-    
-}
 
 @end
