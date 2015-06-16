@@ -31,7 +31,9 @@
     [self.venueSchedulesTableView setTableHeaderView:_venueHeaderView];
     [self.venueImageView sd_setImageWithURL:[NSURL URLWithString:self.venue.image_url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     if (IS_IPAD) {
-        self.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+        if ([self.splitViewController respondsToSelector:@selector(displayModeButtonItem)]){
+            self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        }
         self.navigationItem.leftItemsSupplementBackButton = true;
     }
     [_locationButton setImage:[_locationButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];

@@ -19,7 +19,9 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Detail";
     if (IS_IPAD) {
-        self.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+        if ([self.splitViewController respondsToSelector:@selector(displayModeButtonItem)]){
+            self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        }
         self.navigationItem.leftItemsSupplementBackButton = true;
     }
 }
