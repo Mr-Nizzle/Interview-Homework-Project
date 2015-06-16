@@ -45,11 +45,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//-(void)viewDidLayoutSubviews{
-//    [super viewDidLayoutSubviews];
-//    
-//}
-
 #pragma mark -
 #pragma mark Table View Data Source
 
@@ -69,15 +64,6 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"VenueTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    
-    /*
-     {
-     "end_date": "2013-02-01 13:00:00 -0800",
-     "start_date": "2013-02-01 08:00:00 -0800"
-     }
-     */
-    
-    //[dateFormatterGMTAware setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     
     NSDictionary *schedule = [_venue.schedule objectAtIndex:indexPath.row];
     

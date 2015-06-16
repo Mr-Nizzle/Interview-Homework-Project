@@ -230,11 +230,11 @@
 		8CA549831B30911900F56906 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8C2875961B30823A00777E6D /* Map View */,
-				4AA61C6C1B2FA00C0017B091 /* Empty View Controller */,
-				4AA61C301B2F85D40017B091 /* Venue Table View Cell */,
 				4AA61C1E1B2F788E0017B091 /* Master View Controller */,
 				4AA61C241B2F78AB0017B091 /* Detail View Controller */,
+				4AA61C301B2F85D40017B091 /* Venue Table View Cell */,
+				8C2875961B30823A00777E6D /* Map View */,
+				4AA61C6C1B2FA00C0017B091 /* Empty View Controller */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
