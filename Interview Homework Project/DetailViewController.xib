@@ -67,16 +67,14 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tTB-ND-y7H">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="dXc-Gk-VUg"/>
-                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="tTB-ND-y7H" secondAttribute="trailing" id="7WE-sF-iFX"/>
-                <constraint firstItem="tTB-ND-y7H" firstAttribute="leading" secondItem="3hW-lN-gFC" secondAttribute="leading" id="Dk4-5F-Fzs"/>
-                <constraint firstItem="tTB-ND-y7H" firstAttribute="top" secondItem="3hW-lN-gFC" secondAttribute="top" id="Lma-aE-wlD"/>
+                <constraint firstAttribute="bottom" secondItem="tTB-ND-y7H" secondAttribute="bottom" constant="100" id="ANY-3e-aVE"/>
+                <constraint firstItem="tTB-ND-y7H" firstAttribute="leading" secondItem="3hW-lN-gFC" secondAttribute="leading" id="KSx-md-5Wg"/>
+                <constraint firstAttribute="trailing" secondItem="tTB-ND-y7H" secondAttribute="trailing" id="hGp-xi-Uoi"/>
+                <constraint firstItem="tTB-ND-y7H" firstAttribute="top" secondItem="3hW-lN-gFC" secondAttribute="top" id="uEf-cC-0Ov"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

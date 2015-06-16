@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Venue;
+@protocol MasterViewControllerDelegate <NSObject>
+
+@required
+
+-(void)ipadMasterdidSelectVenue:(Venue *)venue;
+
+@end
 
 @interface MasterViewController : UIViewController
-
 @property (weak, nonatomic) IBOutlet UITableView *venuesTableView;
+@property (assign) id<MasterViewControllerDelegate> delegate;
 @end

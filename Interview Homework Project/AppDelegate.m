@@ -8,11 +8,12 @@
 
 #import "AppDelegate.h"
 #import "MasterViewController.h"
+#import "EmptyViewController.h"
 #import "DetailViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UISplitViewControllerDelegate, MasterViewControllerDelegate>
 @property (nonatomic, strong) MasterViewController *masterViewController;
-@property (nonatomic, strong) DetailViewController *detailViewController;
+@property (nonatomic, strong) EmptyViewController *emptyViewController;
 @property (nonatomic, strong) UINavigationController *mainNavigationController;
 @property (nonatomic, strong) UINavigationController *detailNavigationController;
 @property (nonatomic, strong) UISplitViewController *mainSplitViewController;
@@ -26,13 +27,15 @@
     // Override point for customization after application launch.
     if (IS_IPAD) {
         self.masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
+        self.masterViewController.delegate = self;
         self.mainNavigationController = [[UINavigationController alloc] initWithRootViewController:self.masterViewController];
         
-        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-        self.detailNavigationController = [[UINavigationController alloc] initWithRootViewController:self.detailViewController];
+        self.emptyViewController = [[EmptyViewController alloc] initWithNibName:@"EmptyViewController" bundle:nil];
+        self.detailNavigationController = [[UINavigationController alloc] initWithRootViewController:self.emptyViewController];
         
         self.mainSplitViewController = [[UISplitViewController alloc] init];
         self.mainSplitViewController.viewControllers = @[self.mainNavigationController, self.detailNavigationController];
+        self.mainSplitViewController.delegate = self;
         self.window.rootViewController = self.mainSplitViewController;
     }
     else{
@@ -64,6 +67,15 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark -
+#pragma mark Master Delegate 
+
+-(void)ipadMasterdidSelectVenue:(Venue *)venue{
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:[NSBundle mainBundle]];
+    detailViewController.venue = venue;
+    [self.detailNavigationController setViewControllers:@[detailViewController] animated:YES];
 }
 
 @end

@@ -67,13 +67,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:[NSBundle mainBundle]];
     Venue *venue = [[Venue alloc] initWithDictionary:[_venuesArray objectAtIndex:indexPath.row]];
-    detailViewController.venue = venue;
     if (IS_IPAD) {
-        //
+        [self.delegate ipadMasterdidSelectVenue:venue];
     }
     else{
+        DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:[NSBundle mainBundle]];
+        detailViewController.venue = venue;
         [[self navigationController] pushViewController:detailViewController animated:YES];
     }
 }

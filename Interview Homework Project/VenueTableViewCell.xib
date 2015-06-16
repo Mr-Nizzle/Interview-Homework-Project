@@ -15,10 +15,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLW-Xh-29P">
+                        <rect key="frame" x="8" y="14" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="4i7-aC-4uJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="304" translatesAutoresizingMaskIntoConstraints="NO" id="0Zr-FT-mRR">
                         <rect key="frame" x="8" y="3" width="304" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="AMc-oG-u4b"/>
+                            <constraint firstAttribute="height" constant="21" id="XXo-NY-Cvc"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,31 +35,24 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="304" translatesAutoresizingMaskIntoConstraints="NO" id="SuM-vH-6Ii">
                         <rect key="frame" x="8" y="25" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="swl-pA-wBX"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLW-Xh-29P">
-                        <rect key="frame" x="8" y="14" width="304" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Uoc-Si-FX4"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SuM-vH-6Ii" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1Dx-vr-yw1"/>
-                    <constraint firstItem="GLW-Xh-29P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="KvY-q5-YZJ"/>
-                    <constraint firstItem="0Zr-FT-mRR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="MDK-l9-aig"/>
-                    <constraint firstItem="SuM-vH-6Ii" firstAttribute="top" secondItem="0Zr-FT-mRR" secondAttribute="bottom" constant="1" id="Mcq-Gn-Yry"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="SuM-vH-6Ii" secondAttribute="bottom" constant="-4.5" id="MeK-V7-YSg"/>
-                    <constraint firstItem="0Zr-FT-mRR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="O9Q-eZ-d3E"/>
-                    <constraint firstItem="GLW-Xh-29P" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="chy-PF-aZ1"/>
-                    <constraint firstItem="SuM-vH-6Ii" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="mGu-Rv-lfK"/>
-                    <constraint firstItem="0Zr-FT-mRR" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="rQz-kW-nCr"/>
-                    <constraint firstAttribute="centerY" secondItem="GLW-Xh-29P" secondAttribute="centerY" id="w7K-yk-ET1"/>
+                    <constraint firstItem="SuM-vH-6Ii" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="D9X-hI-Sqt"/>
+                    <constraint firstItem="0Zr-FT-mRR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="FVt-mX-kro"/>
+                    <constraint firstItem="0Zr-FT-mRR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="Kvh-S2-Dyg"/>
+                    <constraint firstAttribute="centerY" secondItem="GLW-Xh-29P" secondAttribute="centerY" id="kHE-7D-7ae"/>
+                    <constraint firstItem="SuM-vH-6Ii" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="sAz-7S-iro"/>
+                    <constraint firstItem="GLW-Xh-29P" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="szQ-8s-VP5"/>
+                    <constraint firstItem="0Zr-FT-mRR" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="wkJ-Lu-7eG"/>
+                    <constraint firstItem="GLW-Xh-29P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="xe7-df-fKc"/>
+                    <constraint firstItem="SuM-vH-6Ii" firstAttribute="top" secondItem="0Zr-FT-mRR" secondAttribute="bottom" constant="1" id="zhV-Vv-JhH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

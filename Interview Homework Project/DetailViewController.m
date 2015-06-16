@@ -21,8 +21,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Detail";
+    if (IS_IPAD) {
+        _venueHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 400);
+    }
+    else{
+        _venueHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 300);
+    }
     [self.venueSchedulesTableView setTableHeaderView:_venueHeaderView];
     [self.venueImageView sd_setImageWithURL:[NSURL URLWithString:self.venue.image_url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    if (IS_IPAD) {
+        self.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+        self.navigationItem.leftItemsSupplementBackButton = true;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,10 +40,10 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-    _venueHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 300);
-}
+//-(void)viewDidLayoutSubviews{
+//    [super viewDidLayoutSubviews];
+//    
+//}
 
 #pragma mark -
 #pragma mark Table View Data Source
@@ -116,6 +126,18 @@
     
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        [UIView animateWithDuration:0.3f animations:^{
+            self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden;
+        } completion:^(BOOL finished) {
+            self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
+        }];
     }
 }
 
