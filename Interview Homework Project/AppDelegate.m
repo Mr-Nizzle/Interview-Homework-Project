@@ -35,7 +35,7 @@
         
         self.mainSplitViewController = [[UISplitViewController alloc] init];
         self.mainSplitViewController.viewControllers = @[self.mainNavigationController, self.detailNavigationController];
-        self.mainSplitViewController.delegate = self;
+        self.mainSplitViewController.delegate = self.emptyViewController;
         self.window.rootViewController = self.mainSplitViewController;
     }
     else{
@@ -75,6 +75,7 @@
 -(void)ipadMasterdidSelectVenue:(Venue *)venue{
     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:[NSBundle mainBundle]];
     detailViewController.venue = venue;
+    self.mainSplitViewController.delegate = detailViewController;
     [self.detailNavigationController setViewControllers:@[detailViewController] animated:YES];
 }
 

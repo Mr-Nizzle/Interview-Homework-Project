@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EmptyViewController : UIViewController
+@interface EmptyViewController : UIViewController <UISplitViewControllerDelegate>
 
 @end

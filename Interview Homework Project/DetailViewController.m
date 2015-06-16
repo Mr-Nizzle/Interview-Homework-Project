@@ -131,9 +131,13 @@
     
     if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
         [UIView animateWithDuration:0.3f animations:^{
-            self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden;
+            if ([self.splitViewController respondsToSelector:@selector(setPreferredDisplayMode:)]) {
+                self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden;
+            }
         } completion:^(BOOL finished) {
-            self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
+            if ([self.splitViewController respondsToSelector:@selector(setPreferredDisplayMode:)]) {
+                self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
+            }
         }];
     }
 }
@@ -200,6 +204,23 @@
         }
         
     }
+}
+
+-(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc{
+    if (![self respondsToSelector:@selector(displayModeButtonItem)]) {
+        [[self navigationItem] setLeftBarButtonItem:barButtonItem];
+    } else {
+        // This callback function is depreciated in IOS8. We use displayModeButtonItem.
+    }
+}
+
+-(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem{
+    if (![self respondsToSelector:@selector(displayModeButtonItem)]) {
+        [[self navigationItem] setLeftBarButtonItem:nil];
+    } else {
+        // This callback function is depreciated in IOS8. We use displayModeButtonItem.
+    }
+    
 }
 
 @end

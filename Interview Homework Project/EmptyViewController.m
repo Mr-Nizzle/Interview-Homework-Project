@@ -23,6 +23,8 @@
             self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         }
         self.navigationItem.leftItemsSupplementBackButton = true;
+        
+        // add a toolbar to host the master view popover (when it is required, in portrait)
     }
 }
 

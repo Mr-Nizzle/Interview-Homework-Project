@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class Venue;
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 @property (nonatomic, strong) Venue *venue;
 @property (strong, nonatomic) IBOutlet UIView *schedulesHeaderView;
 @property (weak, nonatomic) IBOutlet UIView *venueHeaderView;
