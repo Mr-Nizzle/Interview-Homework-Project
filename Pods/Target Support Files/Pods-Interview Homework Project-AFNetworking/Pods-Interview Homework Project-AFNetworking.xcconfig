@@ -1,0 +1,1 @@
+PODS_INTERVIEW_HOMEWORK_PROJECT_AFNETWORKING_OTHER_LDFLAGS = -framework "CoreGraphics" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration"
