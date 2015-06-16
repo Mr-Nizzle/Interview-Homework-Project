@@ -130,7 +130,7 @@
 
 -(void)displayVenueData{
     [_venueNameLabel setText:_venue.name];
-    [_venueAddressLabel setText:_venue.address];
+    [_venueAddressLabel setText:[NSString stringWithFormat:@"%@, %@ %@", _venue.address, _venue.state, _venue.zip]];
 }
 
 - (IBAction)openTicket:(id)sender {

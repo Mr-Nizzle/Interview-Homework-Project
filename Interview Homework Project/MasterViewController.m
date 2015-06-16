@@ -61,7 +61,7 @@
     Venue *venue = [[Venue alloc] initWithDictionary:[_venuesArray objectAtIndex:indexPath.row] error:&err];
     
     [[cell venueNameLabel] setText:venue.name];
-    [[cell venueAddressLabel] setText:venue.address];
+    [[cell venueAddressLabel] setText:[NSString stringWithFormat:@"%@, %@ %@", venue.address, venue.state, venue.zip]];
     
     return cell;
 }
