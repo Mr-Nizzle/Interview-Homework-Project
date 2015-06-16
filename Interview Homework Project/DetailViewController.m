@@ -12,7 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "VenueMapViewController.h"
 
-@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @end
 
@@ -147,9 +147,29 @@
 }
 
 - (IBAction)openTicket:(id)sender {
+    if ([_venue.ticket_link length] != 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_venue.ticket_link]];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[NSString stringWithFormat:@"No link available for %@", _venue.name] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (IBAction)callPhone:(id)sender {
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Call %@", _venue.name]
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    if ([_venue.phone length] != 0) {
+        [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"Call %@", _venue.phone]];
+    }
+    if ([_venue.tollfreephone length] != 0) {
+        [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"Call Toll Free %@", _venue.tollfreephone]];
+    }
+    [actionSheet showInView:self.view];
 }
 
 - (IBAction)showLocation:(id)sender {
@@ -157,4 +177,29 @@
     mapViewController.venue = _venue;
     [[self navigationController] pushViewController:mapViewController animated:YES];
 }
+
+#pragma mark -
+#pragma mark Action Sheet Delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSLog(@"Index = %ld - Title = %@", (long)buttonIndex, [actionSheet buttonTitleAtIndex:buttonIndex]);
+    if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"]) {
+        // do nothing
+    }
+    else{
+        if (buttonIndex == 1) {
+            // make call
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", _venue.phone]];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        else if (buttonIndex == 2){
+            // make call
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", _venue.tollfreephone]];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        
+    }
+}
+
 @end
