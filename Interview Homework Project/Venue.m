@@ -10,4 +10,14 @@
 
 @implementation Venue
 
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id" : @"venueID",
+                                                       @"ticket_link" : @"ticketLink",
+                                                       @"image_url" : @"imageURL",
+                                                       @"tollfreephone" : @"tollFreePhone" 
+                                                       }];
+}
+
 @end

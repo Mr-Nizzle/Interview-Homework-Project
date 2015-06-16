@@ -30,7 +30,7 @@
         _venueHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 300);
     }
     [self.venueSchedulesTableView setTableHeaderView:_venueHeaderView];
-    [self.venueImageView sd_setImageWithURL:[NSURL URLWithString:self.venue.image_url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    [self.venueImageView sd_setImageWithURL:[NSURL URLWithString:self.venue.imageURL] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     if (IS_IPAD) {
         if ([self.splitViewController respondsToSelector:@selector(displayModeButtonItem)]){
             self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -134,8 +134,8 @@
 }
 
 - (IBAction)openTicket:(id)sender {
-    if ([_venue.ticket_link length] != 0) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_venue.ticket_link]];
+    if ([_venue.ticketLink length] != 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_venue.ticketLink]];
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[NSString stringWithFormat:@"No link available for %@", _venue.name] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
@@ -153,8 +153,8 @@
     if ([_venue.phone length] != 0) {
         [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"Call %@", _venue.phone]];
     }
-    if ([_venue.tollfreephone length] != 0) {
-        [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"Call Toll Free %@", _venue.tollfreephone]];
+    if ([_venue.tollFreePhone length] != 0) {
+        [actionSheet addButtonWithTitle:[NSString stringWithFormat:@"Call Toll Free %@", _venue.tollFreePhone]];
     }
     [actionSheet showInView:self.view];
 }
@@ -182,7 +182,7 @@
         }
         else if (buttonIndex == 2){
             // make call
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", _venue.tollfreephone]];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", _venue.tollFreePhone]];
             [[UIApplication sharedApplication] openURL:url];
         }
         
