@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="schedulesHeaderView" destination="rgG-8L-7R6" id="Fk3-sk-sZP"/>
+                <outlet property="venueHeaderView" destination="3hW-lN-gFC" id="GjE-rb-NMA"/>
+                <outlet property="venueImageView" destination="tTB-ND-y7H" id="K0c-i9-Q8v"/>
+                <outlet property="venueSchedulesTableView" destination="0wz-FD-XwA" id="P6g-4z-fae"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +18,69 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0wz-FD-XwA">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="IPR-yK-scD"/>
+                        <outlet property="delegate" destination="-1" id="WFm-bm-4vO"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0wz-FD-XwA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MAy-Df-EEW"/>
+                <constraint firstAttribute="trailing" secondItem="0wz-FD-XwA" secondAttribute="trailing" id="Zij-XT-fPo"/>
+                <constraint firstItem="0wz-FD-XwA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="web-3V-JZt"/>
+                <constraint firstAttribute="bottom" secondItem="0wz-FD-XwA" secondAttribute="bottom" id="zW9-Ju-xDX"/>
+            </constraints>
+        </view>
+        <view contentMode="scaleToFill" id="rgG-8L-7R6" userLabel="Schedules Header View">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDP-Kc-TNU">
+                    <rect key="frame" x="8" y="9" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="UOI-Rk-tlo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="jDP-Kc-TNU" secondAttribute="centerY" id="Bpm-ql-e09"/>
+                <constraint firstAttribute="trailing" secondItem="jDP-Kc-TNU" secondAttribute="trailing" constant="8" id="MJA-iq-3cp"/>
+                <constraint firstItem="jDP-Kc-TNU" firstAttribute="leading" secondItem="rgG-8L-7R6" secondAttribute="leading" constant="8" id="sUm-rh-RoE"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="385" y="734"/>
+        </view>
+        <view contentMode="scaleToFill" id="3hW-lN-gFC">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tTB-ND-y7H">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="dXc-Gk-VUg"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tTB-ND-y7H" secondAttribute="trailing" id="7WE-sF-iFX"/>
+                <constraint firstItem="tTB-ND-y7H" firstAttribute="leading" secondItem="3hW-lN-gFC" secondAttribute="leading" id="Dk4-5F-Fzs"/>
+                <constraint firstItem="tTB-ND-y7H" firstAttribute="top" secondItem="3hW-lN-gFC" secondAttribute="top" id="Lma-aE-wlD"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-360" y="501"/>
         </view>
     </objects>
 </document>
