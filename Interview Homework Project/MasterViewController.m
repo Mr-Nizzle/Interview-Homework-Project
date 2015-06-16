@@ -11,6 +11,7 @@
 #import "MBProgressHUD.h"
 #import "Venue.h"
 #import "DetailViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface MasterViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *venuesArray;
@@ -102,31 +103,40 @@
 -(void)loadVenues{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    NSURL *url = [NSURL URLWithString:@"https://s3.amazonaws.com/jon-hancock-phunware/nflapi-static.json"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data, NSError *connectionError)
-     {
-         if (data.length > 0 && connectionError == nil)
-         {
-             NSArray *jsonRecentPomotions = [NSJSONSerialization JSONObjectWithData:data
-                                                                                 options:0
-                                                                                   error:NULL];
-                 _venuesArray = [NSMutableArray arrayWithArray:jsonRecentPomotions];
-             
-         }
-         else{
 
-         }
-         
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
-             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-             [_venuesTableView reloadData];
-         });
-     }];
+    NSString *string = @"https://s3.amazonaws.com/jon-hancock-phunware/nflapi-static.json";
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        _venuesArray = [NSArray arrayWithArray:responseObject];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [_venuesTableView reloadData];
+        });
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        _venuesArray = @[];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [_venuesTableView reloadData];
+        });
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+    
+    [operation start];
 }
 
 @end
