@@ -123,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				4AA61C251B2F78B20017B091 /* Models */,
+				8CA549841B30912200F56906 /* Views */,
+				8CA549831B30911900F56906 /* Controllers */,
 				4AA61BF71B2F78590017B091 /* AppDelegate.h */,
 				4AA61BF81B2F78590017B091 /* AppDelegate.m */,
 				4AA61BFA1B2F78590017B091 /* ViewController.h */,
@@ -130,10 +132,6 @@
 				4AA61C001B2F78590017B091 /* Images.xcassets */,
 				4AA61C021B2F78590017B091 /* LaunchScreen.xib */,
 				4AA61BF31B2F78590017B091 /* Supporting Files */,
-				4AA61C1E1B2F788E0017B091 /* Master View Controller */,
-				4AA61C241B2F78AB0017B091 /* Detail View Controller */,
-				4AA61C301B2F85D40017B091 /* Venue Table View Cell */,
-				4AA61C6C1B2FA00C0017B091 /* Empty View Controller */,
 			);
 			path = "Interview Homework Project";
 			sourceTree = "<group>";
@@ -170,7 +168,6 @@
 			children = (
 				4AA61C191B2F78890017B091 /* MasterViewController.h */,
 				4AA61C1A1B2F78890017B091 /* MasterViewController.m */,
-				4AA61C1B1B2F78890017B091 /* MasterViewController.xib */,
 			);
 			name = "Master View Controller";
 			sourceTree = "<group>";
@@ -180,8 +177,6 @@
 			children = (
 				4AA61C1F1B2F78A70017B091 /* DetailViewController.h */,
 				4AA61C201B2F78A70017B091 /* DetailViewController.m */,
-				4AA61C211B2F78A70017B091 /* DetailViewController.xib */,
-				8C2875961B30823A00777E6D /* Map View */,
 			);
 			name = "Detail View Controller";
 			sourceTree = "<group>";
@@ -202,7 +197,6 @@
 			children = (
 				4AA61C2B1B2F85D00017B091 /* VenueTableViewCell.h */,
 				4AA61C2C1B2F85D00017B091 /* VenueTableViewCell.m */,
-				4AA61C2D1B2F85D00017B091 /* VenueTableViewCell.xib */,
 			);
 			name = "Venue Table View Cell";
 			sourceTree = "<group>";
@@ -212,7 +206,6 @@
 			children = (
 				4AA61C671B2FA0080017B091 /* EmptyViewController.h */,
 				4AA61C681B2FA0080017B091 /* EmptyViewController.m */,
-				4AA61C691B2FA0080017B091 /* EmptyViewController.xib */,
 			);
 			name = "Empty View Controller";
 			sourceTree = "<group>";
@@ -230,9 +223,32 @@
 			children = (
 				8C2875911B30823400777E6D /* VenueMapViewController.h */,
 				8C2875921B30823400777E6D /* VenueMapViewController.m */,
-				8C2875931B30823400777E6D /* VenueMapViewController.xib */,
 			);
 			name = "Map View";
+			sourceTree = "<group>";
+		};
+		8CA549831B30911900F56906 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C2875961B30823A00777E6D /* Map View */,
+				4AA61C6C1B2FA00C0017B091 /* Empty View Controller */,
+				4AA61C301B2F85D40017B091 /* Venue Table View Cell */,
+				4AA61C1E1B2F788E0017B091 /* Master View Controller */,
+				4AA61C241B2F78AB0017B091 /* Detail View Controller */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8CA549841B30912200F56906 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C2875931B30823400777E6D /* VenueMapViewController.xib */,
+				4AA61C691B2FA0080017B091 /* EmptyViewController.xib */,
+				4AA61C2D1B2F85D00017B091 /* VenueTableViewCell.xib */,
+				4AA61C1B1B2F78890017B091 /* MasterViewController.xib */,
+				4AA61C211B2F78A70017B091 /* DetailViewController.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		F2521E9EEBE021EFC965CA16 /* Pods */ = {
