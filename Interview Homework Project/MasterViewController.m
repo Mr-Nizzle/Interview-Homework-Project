@@ -51,7 +51,8 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"VenueTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    Venue *venue = [[Venue alloc] initWithDictionary:[_venuesArray objectAtIndex:indexPath.row]];
+    NSError* err = nil;
+    Venue *venue = [[Venue alloc] initWithDictionary:[_venuesArray objectAtIndex:indexPath.row] error:&err];
     
     [[cell venueNameLabel] setText:venue.name];
     [[cell venueAddressLabel] setText:venue.address];
@@ -68,7 +69,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Venue *venue = [[Venue alloc] initWithDictionary:[_venuesArray objectAtIndex:indexPath.row]];
+    NSError* err = nil;
+    Venue *venue = [[Venue alloc] initWithDictionary:[_venuesArray objectAtIndex:indexPath.row] error:&err];
     if (IS_IPAD) {
         [self.delegate ipadMasterdidSelectVenue:venue];
     }

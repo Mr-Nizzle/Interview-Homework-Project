@@ -18,7 +18,6 @@
 		4AA61C1D1B2F78890017B091 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA61C1B1B2F78890017B091 /* MasterViewController.xib */; };
 		4AA61C221B2F78A70017B091 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61C201B2F78A70017B091 /* DetailViewController.m */; };
 		4AA61C231B2F78A70017B091 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA61C211B2F78A70017B091 /* DetailViewController.xib */; };
-		4AA61C291B2F840C0017B091 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61C281B2F840C0017B091 /* Venue.m */; };
 		4AA61C2E1B2F85D00017B091 /* VenueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61C2C1B2F85D00017B091 /* VenueTableViewCell.m */; };
 		4AA61C2F1B2F85D00017B091 /* VenueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA61C2D1B2F85D00017B091 /* VenueTableViewCell.xib */; };
 		4AA61C6A1B2FA0080017B091 /* EmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61C681B2FA0080017B091 /* EmptyViewController.m */; };
@@ -27,6 +26,7 @@
 		8C2875951B30823400777E6D /* VenueMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2875931B30823400777E6D /* VenueMapViewController.xib */; };
 		8C2875981B30840300777E6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2875971B30840300777E6D /* MapKit.framework */; };
 		8C28759B1B30877C00777E6D /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C28759A1B30877C00777E6D /* MyAnnotation.m */; };
+		8CA549821B3090B500F56906 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA549811B3090B500F56906 /* Venue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,6 @@
 		4AA61C211B2F78A70017B091 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		4AA61C261B2F80230017B091 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4AA61C271B2F840C0017B091 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
-		4AA61C281B2F840C0017B091 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		4AA61C2B1B2F85D00017B091 /* VenueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueTableViewCell.h; sourceTree = "<group>"; };
 		4AA61C2C1B2F85D00017B091 /* VenueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueTableViewCell.m; sourceTree = "<group>"; };
 		4AA61C2D1B2F85D00017B091 /* VenueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueTableViewCell.xib; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		8C2875971B30840300777E6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8C2875991B30877C00777E6D /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		8C28759A1B30877C00777E6D /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		8CA549811B3090B500F56906 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		946C96F6312FF93DE81F48C9 /* Pods-Interview Homework Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interview Homework Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Interview Homework Project/Pods-Interview Homework Project.release.xcconfig"; sourceTree = "<group>"; };
 		AC2493B2683AB3FF7B985245 /* Pods-Interview Homework Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interview Homework Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Interview Homework Project/Pods-Interview Homework Project.debug.xcconfig"; sourceTree = "<group>"; };
 		F715EE7D7E060B8ADD1A8139 /* Pods_Interview_Homework_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interview_Homework_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +192,7 @@
 				8C2875991B30877C00777E6D /* MyAnnotation.h */,
 				8C28759A1B30877C00777E6D /* MyAnnotation.m */,
 				4AA61C271B2F840C0017B091 /* Venue.h */,
-				4AA61C281B2F840C0017B091 /* Venue.m */,
+				8CA549811B3090B500F56906 /* Venue.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -402,8 +402,8 @@
 				8C2875941B30823400777E6D /* VenueMapViewController.m in Sources */,
 				4AA61C221B2F78A70017B091 /* DetailViewController.m in Sources */,
 				4AA61C1C1B2F78890017B091 /* MasterViewController.m in Sources */,
+				8CA549821B3090B500F56906 /* Venue.m in Sources */,
 				4AA61BFC1B2F78590017B091 /* ViewController.m in Sources */,
-				4AA61C291B2F840C0017B091 /* Venue.m in Sources */,
 				4AA61BF91B2F78590017B091 /* AppDelegate.m in Sources */,
 				8C28759B1B30877C00777E6D /* MyAnnotation.m in Sources */,
 				4AA61C6A1B2FA0080017B091 /* EmptyViewController.m in Sources */,
