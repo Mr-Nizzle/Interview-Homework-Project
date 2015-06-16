@@ -71,10 +71,14 @@
     [dateFormatterGMT setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     
     NSDateFormatter *dateFormatterHuman = [[NSDateFormatter alloc] init];
-    [dateFormatterHuman setDateFormat:@"EEEE dd 'from' hh:mm a"];
+    [dateFormatterHuman setDateFormat:@"EEEE dd 'from' hh:mma"];
+    [dateFormatterHuman setAMSymbol:@"am"];
+    [dateFormatterHuman setPMSymbol:@"pm"];
     
     NSDateFormatter *dateFormatterHumanTo = [[NSDateFormatter alloc] init];
-    [dateFormatterHumanTo setDateFormat:@"'to' hh:mm a"];
+    [dateFormatterHumanTo setDateFormat:@"'to' hh:mma"];
+    [dateFormatterHumanTo setAMSymbol:@"am"];
+    [dateFormatterHumanTo setPMSymbol:@"pm"];
     
     NSDate *dateFrom = [dateFormatterGMT dateFromString:[schedule valueForKey:@"start_date"]];
     NSDate *dateTo = [dateFormatterGMT dateFromString:[schedule valueForKey:@"end_date"]];

@@ -15,6 +15,7 @@
 
 @interface MasterViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *venuesArray;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation MasterViewController
@@ -25,6 +26,10 @@
     self.title = @"Venues";
     [self.venuesTableView registerNib:[UINib nibWithNibName:@"VenueTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"VenueTableViewCell"];
     [self loadVenues];
+    
+    _refreshControl = [[UIRefreshControl alloc]init];
+    [self.venuesTableView addSubview:_refreshControl];
+    [_refreshControl addTarget:self action:@selector(loadVenues) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,9 +121,15 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         _venuesArray = [NSArray arrayWithArray:responseObject];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [_venuesArray sortedArrayUsingDescriptors:sortDescriptors];
+        _venuesArray = sortedArray;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [_refreshControl endRefreshing];
             [_venuesTableView reloadData];
         });
         
@@ -128,6 +139,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [_refreshControl endRefreshing];
             [_venuesTableView reloadData];
         });
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"

@@ -10,7 +10,6 @@
 		37AEBFA4DC9EA17AAB3E8AA7 /* Pods_Interview_Homework_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F715EE7D7E060B8ADD1A8139 /* Pods_Interview_Homework_Project.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4AA61BF61B2F78590017B091 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61BF51B2F78590017B091 /* main.m */; };
 		4AA61BF91B2F78590017B091 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61BF81B2F78590017B091 /* AppDelegate.m */; };
-		4AA61BFC1B2F78590017B091 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61BFB1B2F78590017B091 /* ViewController.m */; };
 		4AA61C011B2F78590017B091 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA61C001B2F78590017B091 /* Images.xcassets */; };
 		4AA61C041B2F78590017B091 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA61C021B2F78590017B091 /* LaunchScreen.xib */; };
 		4AA61C101B2F78590017B091 /* Interview_Homework_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61C0F1B2F78590017B091 /* Interview_Homework_ProjectTests.m */; };
@@ -43,10 +42,8 @@
 		4AA61BF01B2F78590017B091 /* Interview Homework Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interview Homework Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA61BF41B2F78590017B091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA61BF51B2F78590017B091 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4AA61BF71B2F78590017B091 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4AA61BF81B2F78590017B091 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4AA61BFA1B2F78590017B091 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4AA61BFB1B2F78590017B091 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4AA61BF71B2F78590017B091 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Interview Homework Project/AppDelegate.h"; sourceTree = "<group>"; };
+		4AA61BF81B2F78590017B091 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Interview Homework Project/AppDelegate.m"; sourceTree = "<group>"; };
 		4AA61C001B2F78590017B091 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4AA61C031B2F78590017B091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4AA61C091B2F78590017B091 /* Interview Homework ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interview Homework ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +98,8 @@
 		4AA61BE71B2F78590017B091 = {
 			isa = PBXGroup;
 			children = (
+				4AA61BF71B2F78590017B091 /* AppDelegate.h */,
+				4AA61BF81B2F78590017B091 /* AppDelegate.m */,
 				8C2875971B30840300777E6D /* MapKit.framework */,
 				4AA61BF21B2F78590017B091 /* Interview Homework Project */,
 				4AA61C0C1B2F78590017B091 /* Interview Homework ProjectTests */,
@@ -125,10 +124,6 @@
 				4AA61C251B2F78B20017B091 /* Models */,
 				8CA549841B30912200F56906 /* Views */,
 				8CA549831B30911900F56906 /* Controllers */,
-				4AA61BF71B2F78590017B091 /* AppDelegate.h */,
-				4AA61BF81B2F78590017B091 /* AppDelegate.m */,
-				4AA61BFA1B2F78590017B091 /* ViewController.h */,
-				4AA61BFB1B2F78590017B091 /* ViewController.m */,
 				4AA61C001B2F78590017B091 /* Images.xcassets */,
 				4AA61C021B2F78590017B091 /* LaunchScreen.xib */,
 				4AA61BF31B2F78590017B091 /* Supporting Files */,
@@ -197,6 +192,7 @@
 			children = (
 				4AA61C2B1B2F85D00017B091 /* VenueTableViewCell.h */,
 				4AA61C2C1B2F85D00017B091 /* VenueTableViewCell.m */,
+				4AA61C2D1B2F85D00017B091 /* VenueTableViewCell.xib */,
 			);
 			name = "Venue Table View Cell";
 			sourceTree = "<group>";
@@ -232,7 +228,6 @@
 			children = (
 				4AA61C1E1B2F788E0017B091 /* Master View Controller */,
 				4AA61C241B2F78AB0017B091 /* Detail View Controller */,
-				4AA61C301B2F85D40017B091 /* Venue Table View Cell */,
 				8C2875961B30823A00777E6D /* Map View */,
 				4AA61C6C1B2FA00C0017B091 /* Empty View Controller */,
 			);
@@ -242,13 +237,21 @@
 		8CA549841B30912200F56906 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8CA549851B3093E000F56906 /* Cells */,
 				8C2875931B30823400777E6D /* VenueMapViewController.xib */,
 				4AA61C691B2FA0080017B091 /* EmptyViewController.xib */,
-				4AA61C2D1B2F85D00017B091 /* VenueTableViewCell.xib */,
 				4AA61C1B1B2F78890017B091 /* MasterViewController.xib */,
 				4AA61C211B2F78A70017B091 /* DetailViewController.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		8CA549851B3093E000F56906 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4AA61C301B2F85D40017B091 /* Venue Table View Cell */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		F2521E9EEBE021EFC965CA16 /* Pods */ = {
@@ -419,7 +422,6 @@
 				4AA61C221B2F78A70017B091 /* DetailViewController.m in Sources */,
 				4AA61C1C1B2F78890017B091 /* MasterViewController.m in Sources */,
 				8CA549821B3090B500F56906 /* Venue.m in Sources */,
-				4AA61BFC1B2F78590017B091 /* ViewController.m in Sources */,
 				4AA61BF91B2F78590017B091 /* AppDelegate.m in Sources */,
 				8C28759B1B30877C00777E6D /* MyAnnotation.m in Sources */,
 				4AA61C6A1B2FA0080017B091 /* EmptyViewController.m in Sources */,
