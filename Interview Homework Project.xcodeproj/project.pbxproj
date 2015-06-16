@@ -39,6 +39,10 @@
 		4AA61C661B2F91A70017B091 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61C561B2F91A70017B091 /* UIView+WebCacheOperation.m */; };
 		4AA61C6A1B2FA0080017B091 /* EmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA61C681B2FA0080017B091 /* EmptyViewController.m */; };
 		4AA61C6B1B2FA0080017B091 /* EmptyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA61C691B2FA0080017B091 /* EmptyViewController.xib */; };
+		8C2875941B30823400777E6D /* VenueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2875921B30823400777E6D /* VenueMapViewController.m */; };
+		8C2875951B30823400777E6D /* VenueMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2875931B30823400777E6D /* VenueMapViewController.xib */; };
+		8C2875981B30840300777E6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2875971B30840300777E6D /* MapKit.framework */; };
+		8C28759B1B30877C00777E6D /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C28759A1B30877C00777E6D /* MyAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +118,12 @@
 		4AA61C671B2FA0080017B091 /* EmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyViewController.h; sourceTree = "<group>"; };
 		4AA61C681B2FA0080017B091 /* EmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyViewController.m; sourceTree = "<group>"; };
 		4AA61C691B2FA0080017B091 /* EmptyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyViewController.xib; sourceTree = "<group>"; };
+		8C2875911B30823400777E6D /* VenueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueMapViewController.h; sourceTree = "<group>"; };
+		8C2875921B30823400777E6D /* VenueMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueMapViewController.m; sourceTree = "<group>"; };
+		8C2875931B30823400777E6D /* VenueMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueMapViewController.xib; sourceTree = "<group>"; };
+		8C2875971B30840300777E6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8C2875991B30877C00777E6D /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		8C28759A1B30877C00777E6D /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2875981B30840300777E6D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +148,7 @@
 		4AA61BE71B2F78590017B091 = {
 			isa = PBXGroup;
 			children = (
+				8C2875971B30840300777E6D /* MapKit.framework */,
 				4AA61BF21B2F78590017B091 /* Interview Homework Project */,
 				4AA61C0C1B2F78590017B091 /* Interview Homework ProjectTests */,
 				4AA61BF11B2F78590017B091 /* Products */,
@@ -216,6 +228,7 @@
 				4AA61C1F1B2F78A70017B091 /* DetailViewController.h */,
 				4AA61C201B2F78A70017B091 /* DetailViewController.m */,
 				4AA61C211B2F78A70017B091 /* DetailViewController.xib */,
+				8C2875961B30823A00777E6D /* Map View */,
 			);
 			name = "Detail View Controller";
 			sourceTree = "<group>";
@@ -223,6 +236,8 @@
 		4AA61C251B2F78B20017B091 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8C2875991B30877C00777E6D /* MyAnnotation.h */,
+				8C28759A1B30877C00777E6D /* MyAnnotation.m */,
 				4AA61C271B2F840C0017B091 /* Venue.h */,
 				4AA61C281B2F840C0017B091 /* Venue.m */,
 			);
@@ -296,6 +311,16 @@
 				4AA61C691B2FA0080017B091 /* EmptyViewController.xib */,
 			);
 			name = "Empty View Controller";
+			sourceTree = "<group>";
+		};
+		8C2875961B30823A00777E6D /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				8C2875911B30823400777E6D /* VenueMapViewController.h */,
+				8C2875921B30823400777E6D /* VenueMapViewController.m */,
+				8C2875931B30823400777E6D /* VenueMapViewController.xib */,
+			);
+			name = "Map View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2875951B30823400777E6D /* VenueMapViewController.xib in Resources */,
 				4AA61C6B1B2FA0080017B091 /* EmptyViewController.xib in Resources */,
 				4AA61C2F1B2F85D00017B091 /* VenueTableViewCell.xib in Resources */,
 				4AA61C041B2F78590017B091 /* LaunchScreen.xib in Resources */,
@@ -402,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA61C5B1B2F91A70017B091 /* SDWebImageDecoder.m in Sources */,
+				8C2875941B30823400777E6D /* VenueMapViewController.m in Sources */,
 				4AA61C5E1B2F91A70017B091 /* SDWebImageManager.m in Sources */,
 				4AA61C581B2F91A70017B091 /* NSData+ImageContentType.m in Sources */,
 				4AA61C5A1B2F91A70017B091 /* SDWebImageCompat.m in Sources */,
@@ -417,6 +444,7 @@
 				4AA61C291B2F840C0017B091 /* Venue.m in Sources */,
 				4AA61BF91B2F78590017B091 /* AppDelegate.m in Sources */,
 				4AA61C621B2F91A70017B091 /* UIImage+MultiFormat.m in Sources */,
+				8C28759B1B30877C00777E6D /* MyAnnotation.m in Sources */,
 				4AA61C6A1B2FA0080017B091 /* EmptyViewController.m in Sources */,
 				4AA61C2E1B2F85D00017B091 /* VenueTableViewCell.m in Sources */,
 				4AA61C591B2F91A70017B091 /* SDImageCache.m in Sources */,
@@ -622,6 +650,7 @@
 				4AA61C151B2F78590017B091 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AA61C161B2F78590017B091 /* Build configuration list for PBXNativeTarget "Interview Homework ProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -630,6 +659,7 @@
 				4AA61C181B2F78590017B091 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

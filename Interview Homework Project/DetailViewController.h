@@ -14,4 +14,12 @@
 @property (weak, nonatomic) IBOutlet UIView *venueHeaderView;
 @property (weak, nonatomic) IBOutlet UIImageView *venueImageView;
 @property (weak, nonatomic) IBOutlet UITableView *venueSchedulesTableView;
+@property (weak, nonatomic) IBOutlet UILabel *venueNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *venueAddressLabel;
+@property (weak, nonatomic) IBOutlet UIButton *ticketButton;
+@property (weak, nonatomic) IBOutlet UIButton *phoneButton;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
+- (IBAction)openTicket:(id)sender;
+- (IBAction)callPhone:(id)sender;
+- (IBAction)showLocation:(id)sender;
 @end

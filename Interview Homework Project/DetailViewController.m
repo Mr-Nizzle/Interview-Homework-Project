@@ -10,6 +10,7 @@
 #import "VenueTableViewCell.h"
 #import "Venue.h"
 #import "UIImageView+WebCache.h"
+#import "VenueMapViewController.h"
 
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -33,6 +34,10 @@
         self.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
         self.navigationItem.leftItemsSupplementBackButton = true;
     }
+    [_locationButton setImage:[_locationButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [_phoneButton setImage:[_phoneButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [_ticketButton setImage:[_ticketButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self displayVenueData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,4 +146,23 @@
     }
 }
 
+#pragma mark -
+#pragma mark Display Venue Data
+
+-(void)displayVenueData{
+    [_venueNameLabel setText:_venue.name];
+    [_venueAddressLabel setText:_venue.address];
+}
+
+- (IBAction)openTicket:(id)sender {
+}
+
+- (IBAction)callPhone:(id)sender {
+}
+
+- (IBAction)showLocation:(id)sender {
+    VenueMapViewController *mapViewController = [[VenueMapViewController alloc] initWithNibName:@"VenueMapViewController"  bundle:[NSBundle mainBundle]];
+    mapViewController.venue = _venue;
+    [[self navigationController] pushViewController:mapViewController animated:YES];
+}
 @end

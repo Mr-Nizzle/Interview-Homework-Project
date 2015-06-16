@@ -7,9 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="locationButton" destination="M8y-Oq-8uV" id="bcf-PG-M07"/>
+                <outlet property="phoneButton" destination="ol6-5l-A8m" id="xfD-sn-ehO"/>
                 <outlet property="schedulesHeaderView" destination="rgG-8L-7R6" id="Fk3-sk-sZP"/>
+                <outlet property="ticketButton" destination="4q2-Oc-LOF" id="xUP-A3-vGs"/>
+                <outlet property="venueAddressLabel" destination="AvQ-fU-ArR" id="A9r-rf-48j"/>
                 <outlet property="venueHeaderView" destination="3hW-lN-gFC" id="GjE-rb-NMA"/>
                 <outlet property="venueImageView" destination="tTB-ND-y7H" id="K0c-i9-Q8v"/>
+                <outlet property="venueNameLabel" destination="5a9-mM-JnO" id="oww-On-fkp"/>
                 <outlet property="venueSchedulesTableView" destination="0wz-FD-XwA" id="P6g-4z-fae"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -68,17 +73,97 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tTB-ND-y7H">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5a9-mM-JnO">
+                    <rect key="frame" x="8" y="208" width="284" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6Aa-Iy-RnT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvQ-fU-ArR">
+                    <rect key="frame" x="8" y="231" width="284" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="MwY-JS-DRn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q2-Oc-LOF">
+                    <rect key="frame" x="262" y="262" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="lS0-XK-hoR"/>
+                        <constraint firstAttribute="height" constant="30" id="zFS-NP-j5e"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="T" image="ticket">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openTicket:" destination="-1" eventType="touchUpInside" id="KAU-se-ZDC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ol6-5l-A8m">
+                    <rect key="frame" x="214" y="262" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Djw-US-mYW"/>
+                        <constraint firstAttribute="height" constant="30" id="itI-xk-yQB"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="phone">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="callPhone:" destination="-1" eventType="touchUpInside" id="ZUG-So-fmw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8y-Oq-8uV">
+                    <rect key="frame" x="166" y="262" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="WSI-64-DRG"/>
+                        <constraint firstAttribute="height" constant="30" id="cdO-zU-hCl"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="location">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showLocation:" destination="-1" eventType="touchUpInside" id="uYp-h0-aT4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="AvQ-fU-ArR" secondAttribute="trailing" constant="8" id="3xc-36-CF1"/>
+                <constraint firstAttribute="bottom" secondItem="M8y-Oq-8uV" secondAttribute="bottom" constant="8" id="5UQ-zm-pho"/>
                 <constraint firstAttribute="bottom" secondItem="tTB-ND-y7H" secondAttribute="bottom" constant="100" id="ANY-3e-aVE"/>
+                <constraint firstAttribute="bottom" secondItem="4q2-Oc-LOF" secondAttribute="bottom" constant="8" id="CUY-Ul-GmR"/>
+                <constraint firstItem="4q2-Oc-LOF" firstAttribute="leading" secondItem="ol6-5l-A8m" secondAttribute="trailing" constant="18" id="Ghc-YV-7Jr"/>
                 <constraint firstItem="tTB-ND-y7H" firstAttribute="leading" secondItem="3hW-lN-gFC" secondAttribute="leading" id="KSx-md-5Wg"/>
+                <constraint firstAttribute="trailing" secondItem="4q2-Oc-LOF" secondAttribute="trailing" constant="8" id="TXa-kS-WZi"/>
+                <constraint firstItem="ol6-5l-A8m" firstAttribute="leading" secondItem="M8y-Oq-8uV" secondAttribute="trailing" constant="18" id="WZa-dC-yFC"/>
                 <constraint firstAttribute="trailing" secondItem="tTB-ND-y7H" secondAttribute="trailing" id="hGp-xi-Uoi"/>
+                <constraint firstItem="5a9-mM-JnO" firstAttribute="leading" secondItem="3hW-lN-gFC" secondAttribute="leading" constant="8" id="mAl-SY-HhA"/>
+                <constraint firstItem="AvQ-fU-ArR" firstAttribute="leading" secondItem="3hW-lN-gFC" secondAttribute="leading" constant="8" id="mOO-sp-x4e"/>
+                <constraint firstItem="AvQ-fU-ArR" firstAttribute="top" secondItem="5a9-mM-JnO" secondAttribute="bottom" constant="2" id="mQ1-4N-RDm"/>
+                <constraint firstAttribute="trailing" secondItem="5a9-mM-JnO" secondAttribute="trailing" constant="8" id="qMo-hs-ypj"/>
                 <constraint firstItem="tTB-ND-y7H" firstAttribute="top" secondItem="3hW-lN-gFC" secondAttribute="top" id="uEf-cC-0Ov"/>
+                <constraint firstItem="5a9-mM-JnO" firstAttribute="top" secondItem="tTB-ND-y7H" secondAttribute="bottom" constant="8" id="xw3-va-wDE"/>
+                <constraint firstAttribute="bottom" secondItem="ol6-5l-A8m" secondAttribute="bottom" constant="8" id="ysY-kt-T3r"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-360" y="501"/>
         </view>
     </objects>
+    <resources>
+        <image name="location" width="256" height="256"/>
+        <image name="phone" width="512" height="512"/>
+        <image name="ticket" width="512" height="512"/>
+    </resources>
 </document>
