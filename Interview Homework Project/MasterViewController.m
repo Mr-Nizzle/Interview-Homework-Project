@@ -14,7 +14,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "NetworkManager.h"
 
-@interface MasterViewController () <UITableViewDataSource, UITableViewDelegate, NetworkManagerDelegate>
+@interface MasterViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *venuesArray;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
@@ -112,42 +112,37 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NetworkManager *networkManager = [[NetworkManager alloc] init];
-    networkManager.delegate = self;
-    [networkManager requestDataFromURL:[NSURL URLWithString:@"https://s3.amazonaws.com/jon-hancock-phunware/nflapi-static.json"]];
-}
-
-#pragma mark -
-#pragma mark Newtwork Manager Delegate
-
--(void)networkManagerDidRecieveData:(id)responseObject{
-    _venuesArray = [NSArray arrayWithArray:responseObject];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray = [_venuesArray sortedArrayUsingDescriptors:sortDescriptors];
-    _venuesArray = sortedArray;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        [_refreshControl endRefreshing];
-        [_venuesTableView reloadData];
-    });
-}
-
--(void)networkManagerDidFailWithError:(NSError *)error{
-    _venuesArray = @[];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        [_refreshControl endRefreshing];
-        [_venuesTableView reloadData];
-    });
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
-                                                        message:[error localizedDescription]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    [networkManager requestDataFromURL:[NSURL URLWithString:@"https://s3.amazonaws.com/jon-hancock-phunware/nflapi-static.json"] andCompletionHandler:^(bool success, id responseObject, NSError *error){
+        if (success) {
+            _venuesArray = [NSArray arrayWithArray:responseObject];
+            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+            NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+            NSArray *sortedArray = [_venuesArray sortedArrayUsingDescriptors:sortDescriptors];
+            _venuesArray = sortedArray;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                [_refreshControl endRefreshing];
+                [_venuesTableView reloadData];
+            });
+        }
+        else{
+            _venuesArray = @[];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                [_refreshControl endRefreshing];
+                [_venuesTableView reloadData];
+            });
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Information"
+                                                                message:[error localizedDescription]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        }
+    }];
 }
 
 
