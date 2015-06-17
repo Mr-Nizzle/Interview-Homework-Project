@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSString *pcode;
 @property (strong, nonatomic) NSString *city;
-@property (strong, nonatomic) NSString *id;
+@property (strong, nonatomic) NSString *venueID;
 @property (strong, nonatomic) NSString *tollFreePhone;
 @property (strong, nonatomic) NSArray *schedule;
 @property (strong, nonatomic) NSString *address;
